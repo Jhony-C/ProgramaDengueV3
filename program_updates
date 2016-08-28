@@ -1,0 +1,11 @@
+Data 28/08/2016
+
+Feito algumas alterações importantes para o progresso do projeto.
+  Adicionado Botão de "Pesquisa Ordenada" na TelaConsulta, que irá abrir uma pequena janela para selecionar a forma de ordenação da tabela. 
+    TODO: Próximo passo será pegar o conteúdo especificado, ordenar e devolver à tabela.
+  Alterado cores e tamanhos de alguns componentes.
+  Adicionado icones aos botões.
+  Ajustado algumas funções de botões como: Sair, levar para outra tela, apagar, inserir, itens da barra de menu.
+  
+  >>Projeto sendo desenvolvido pela equipe InnovativeApp da faculdade Maurício de Nassau.
+  Programadores: Iago Melo e Jhony Canedo.
