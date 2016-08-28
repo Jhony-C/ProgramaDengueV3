@@ -29,29 +29,28 @@ public class TelaSobre extends javax.swing.JFrame {
 
         jTextArea1 = new javax.swing.JTextArea();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Sobre");
+        setTitle("Creditos");
 
         jTextArea1.setEditable(false);
-        jTextArea1.setBackground(new java.awt.Color(231, 231, 231));
+        jTextArea1.setBackground(new java.awt.Color(51, 51, 51));
         jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
+        jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(102, 204, 0));
         jTextArea1.setRows(5);
-        jTextArea1.setText(" \t \n\t   Programa desenvolvido pela \n                   equipe InnovativeApp do curso de \n     Sistemas de Informação faculdade Mauricio de Nassau\n\t           4º Semestre 4NA.\n\n                                     Creditos\n\n                  Jonilson Canedo Ferreira (Programador)\n                  Iago Rodrigues Melo (Programador)\n      \n                  Daniel Heber Texeira (Agente de Dados)\n                  Daniel Viegas Vieira (Agente de Dados)\n         Renato Alan Barbosa de Lima (Agente de Dados)\n          Paulo Vitor Bezerra Guedes (Agente de Dados)\n      Marcos Alan Albuquerque Fortunato (Agente de Dados)\n            Marcus Souza Damasceno (Agente de Dados)\n           André Do Nascimento Sousa (Agente de Dados)\n\n\t                   2016\n");
+        jTextArea1.setText(" \t \n\t\t  System.out.println(\"\t    \n    Programa desenvolvido pela equipe InnovativeApp do \n    curso de Sistemas de Informação faculdade Mauricio \n\t       de Nassau 4º Semestre 4NA.\")\n\n                     /*Créditos {\n\n        *Jonilson Canedo Ferreira (Programador);\n        *Iago Rodrigues Melo (Programador);\n      \n      *Daniel Heber Texeira (Agente de Dados);\n      *Daniel Viegas Vieira (Agente de Dados);\n\n      *Renato Alan Barbosa de Lima (Agente de Dados);\n      *Paulo Vitor Bezerra Guedes (Agente de Dados);\n\n      *Marcos Alan Fortunato (Agente de Dados);\n      *Marcus Souza Damasceno (Agente de Dados);\n      *André Do Nascimento Sousa (Agente de Dados);\n\t\t\t    }*/\n\n\t\t\t//2016     \n     JOptionPane.showMessageDialog(null, \"Obrigado!\");\n");
         jTextArea1.setWrapStyleWord(true);
+        jTextArea1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jTextArea1, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTextArea1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jTextArea1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
         );
 
         pack();
@@ -83,6 +82,7 @@ public class TelaSobre extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaSobre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

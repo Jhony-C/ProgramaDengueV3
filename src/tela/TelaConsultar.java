@@ -5,6 +5,10 @@
  */
 package tela;
 
+import classes.JanelasOpcoes;
+import java.awt.event.WindowEvent;
+import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
+
 /**
  *
  * @author Iago2
@@ -17,7 +21,16 @@ public class TelaConsultar extends javax.swing.JFrame {
     public TelaConsultar() {
         initComponents();
 
-        panSortOp.setVisible(false);
+//        perguntando se o usuario deseja mesmo fechar a janela quando apertar no 'X'
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                if (e.getID() == WindowEvent.WINDOW_CLOSING) {
+                    new JanelasOpcoes().sair();
+                }
+            }
+        });
     }
 
     /**
@@ -29,94 +42,37 @@ public class TelaConsultar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnSair = new javax.swing.JButton();
-        tgbSort = new javax.swing.JToggleButton();
-        panSortOp = new javax.swing.JPanel();
-        btnSortOk = new javax.swing.JButton();
-        cbSortOp = new javax.swing.JComboBox<>();
-        btnConsulta = new javax.swing.JButton();
-        cbSortOp1 = new javax.swing.JComboBox<>();
-        cbSortOp2 = new javax.swing.JComboBox<>();
-        cbSortOp3 = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblConsulta = new javax.swing.JTable();
+        cbSortOp3 = new javax.swing.JComboBox<>();
+        cbSortOp1 = new javax.swing.JComboBox<>();
+        cbSortOp2 = new javax.swing.JComboBox<>();
+        btnSair = new javax.swing.JButton();
+        btnPesquisa = new javax.swing.JButton();
+        btnPesquisaOrdenada = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jmitSair = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        jmitReg = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        menuSobre = new javax.swing.JMenuItem();
+        jmitSobre = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Consulta de Casos de Dengue no Estado do Pará");
-        setPreferredSize(new java.awt.Dimension(736, 463));
         setResizable(false);
-
-        btnSair.setText("Sair");
-        btnSair.setMaximumSize(new java.awt.Dimension(1000, 1000));
-        btnSair.setMinimumSize(new java.awt.Dimension(10, 10));
-        btnSair.setPreferredSize(new java.awt.Dimension(105, 29));
-
-        tgbSort.setText("Ordernar");
-        tgbSort.setMaximumSize(new java.awt.Dimension(1000, 1000));
-        tgbSort.setMinimumSize(new java.awt.Dimension(0, 0));
-        tgbSort.setPreferredSize(new java.awt.Dimension(105, 29));
-        tgbSort.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tgbSortActionPerformed(evt);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
-        panSortOp.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setMinimumSize(new java.awt.Dimension(0, 0));
+        jPanel1.setPreferredSize(new java.awt.Dimension(820, 420));
 
-        btnSortOk.setText("Ok");
-        btnSortOk.setMaximumSize(new java.awt.Dimension(1000, 1000));
-        btnSortOk.setMinimumSize(new java.awt.Dimension(0, 0));
-
-        cbSortOp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Casos Mais Relevantes", "Casos Menos Relevantes", "Ano" }));
-        cbSortOp.setMaximumSize(new java.awt.Dimension(1000, 1000));
-        cbSortOp.setMinimumSize(new java.awt.Dimension(0, 0));
-        cbSortOp.setPreferredSize(new java.awt.Dimension(168, 25));
-
-        javax.swing.GroupLayout panSortOpLayout = new javax.swing.GroupLayout(panSortOp);
-        panSortOp.setLayout(panSortOpLayout);
-        panSortOpLayout.setHorizontalGroup(
-            panSortOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panSortOpLayout.createSequentialGroup()
-                .addComponent(btnSortOk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbSortOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
-        );
-        panSortOpLayout.setVerticalGroup(
-            panSortOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panSortOpLayout.createSequentialGroup()
-                .addGroup(panSortOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSortOk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbSortOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0))
-        );
-
-        btnConsulta.setText("Consulta");
-        btnConsulta.setMaximumSize(new java.awt.Dimension(1000, 1000));
-        btnConsulta.setMinimumSize(new java.awt.Dimension(10, 10));
-        btnConsulta.setPreferredSize(new java.awt.Dimension(105, 29));
-
-        cbSortOp1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar Cidade", " ", "Belém", "Ananideua", "Marituba", "Castanhal", "Parauapebas", "Altamira", "Senador José.P", "Canaã dos Carajás" }));
-        cbSortOp1.setMaximumSize(new java.awt.Dimension(1000, 1000));
-        cbSortOp1.setMinimumSize(new java.awt.Dimension(0, 0));
-        cbSortOp1.setPreferredSize(new java.awt.Dimension(168, 25));
-
-        cbSortOp2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar Ano", " ", "2016", "2015", "2014", "2013", "2012", "2011", "2010" }));
-        cbSortOp2.setMaximumSize(new java.awt.Dimension(1000, 1000));
-        cbSortOp2.setMinimumSize(new java.awt.Dimension(0, 0));
-        cbSortOp2.setPreferredSize(new java.awt.Dimension(168, 25));
-
-        cbSortOp3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dengue" }));
-        cbSortOp3.setMaximumSize(new java.awt.Dimension(1000, 1000));
-        cbSortOp3.setMinimumSize(new java.awt.Dimension(0, 0));
-        cbSortOp3.setPreferredSize(new java.awt.Dimension(168, 25));
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(452, 270));
 
         tblConsulta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -131,31 +87,148 @@ public class TelaConsultar extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblConsulta);
 
-        jMenu1.setText("Arquivo");
+        cbSortOp3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbSortOp3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dengue" }));
+        cbSortOp3.setMaximumSize(new java.awt.Dimension(1000, 1000));
+        cbSortOp3.setMinimumSize(new java.awt.Dimension(0, 0));
+        cbSortOp3.setPreferredSize(new java.awt.Dimension(170, 29));
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItem3.setText("Sair");
-        jMenu1.add(jMenuItem3);
+        cbSortOp1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbSortOp1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar Cidade", "Belém", "Ananideua", "Marituba", "Castanhal", "Parauapebas", "Altamira", "Senador José.P", "Canaã dos Carajás" }));
+        cbSortOp1.setMaximumSize(new java.awt.Dimension(1000, 1000));
+        cbSortOp1.setMinimumSize(new java.awt.Dimension(0, 0));
+        cbSortOp1.setPreferredSize(new java.awt.Dimension(170, 29));
+
+        cbSortOp2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbSortOp2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar Ano", "2016", "2015", "2014", "2013", "2012", "2011", "2010" }));
+        cbSortOp2.setMaximumSize(new java.awt.Dimension(1000, 1000));
+        cbSortOp2.setMinimumSize(new java.awt.Dimension(0, 0));
+        cbSortOp2.setPreferredSize(new java.awt.Dimension(170, 29));
+
+        btnSair.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Sair.png"))); // NOI18N
+        btnSair.setText("Sair");
+        btnSair.setMaximumSize(new java.awt.Dimension(1000, 1000));
+        btnSair.setMinimumSize(new java.awt.Dimension(10, 10));
+        btnSair.setPreferredSize(new java.awt.Dimension(128, 35));
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+
+        btnPesquisa.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/consult.gif"))); // NOI18N
+        btnPesquisa.setText("Pesquisar");
+        btnPesquisa.setMaximumSize(new java.awt.Dimension(1000, 1000));
+        btnPesquisa.setMinimumSize(new java.awt.Dimension(10, 10));
+        btnPesquisa.setPreferredSize(new java.awt.Dimension(128, 35));
+        btnPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisaActionPerformed(evt);
+            }
+        });
+
+        btnPesquisaOrdenada.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnPesquisaOrdenada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Ordenar.gif"))); // NOI18N
+        btnPesquisaOrdenada.setText("Pesquisa Ordenada");
+        btnPesquisaOrdenada.setMaximumSize(new java.awt.Dimension(1000, 1000));
+        btnPesquisaOrdenada.setMinimumSize(new java.awt.Dimension(10, 10));
+        btnPesquisaOrdenada.setPreferredSize(new java.awt.Dimension(128, 35));
+        btnPesquisaOrdenada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisaOrdenadaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(cbSortOp2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbSortOp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbSortOp3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                .addComponent(btnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(2, 2, 2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnPesquisaOrdenada, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(312, 312, 312))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(2, 2, 2))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbSortOp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbSortOp2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbSortOp3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPesquisaOrdenada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jMenu1.setText("Arquivo");
+        jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+
+        jmitSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        jmitSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Sair.png"))); // NOI18N
+        jmitSair.setText("Sair");
+        jmitSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmitSairActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmitSair);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Opções");
+        jMenu2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem5.setText("Registrar");
-        jMenu2.add(jMenuItem5);
+        jmitReg.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
+        jmitReg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/BotaoReg.gif"))); // NOI18N
+        jmitReg.setText("Registrar");
+        jmitReg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmitRegActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jmitReg);
 
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Ajuda");
+        jMenu3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        menuSobre.setText("Sobre");
-        menuSobre.addActionListener(new java.awt.event.ActionListener() {
+        jmitSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/info.png"))); // NOI18N
+        jmitSobre.setText("Sobre");
+        jmitSobre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuSobreActionPerformed(evt);
+                jmitSobreActionPerformed(evt);
             }
         });
-        jMenu3.add(menuSobre);
+        jMenu3.add(jmitSobre);
 
         jMenuBar1.add(jMenu3);
 
@@ -166,63 +239,46 @@ public class TelaConsultar extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tgbSort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(panSortOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(221, 221, 221)
-                                .addComponent(cbSortOp2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbSortOp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbSortOp3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbSortOp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbSortOp2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbSortOp3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panSortOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(tgbSort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(4, 4, 4)))
-                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tgbSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tgbSortActionPerformed
-        // TODO add your handling code here:
-        panSortOp.setVisible(true);
-    }//GEN-LAST:event_tgbSortActionPerformed
+    private void jmitSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmitSobreActionPerformed
+        new TelaSobre().setVisible(true);
+    }//GEN-LAST:event_jmitSobreActionPerformed
 
-    private void menuSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSobreActionPerformed
+    private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
+        // TODO: adicionar uma pergunta para usuario para saber se ele deseja ordenar e como.
+    }//GEN-LAST:event_btnPesquisaActionPerformed
+
+    private void jmitRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmitRegActionPerformed
+        new TelaRegistrar().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jmitRegActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
-        TelaSobre ts = new TelaSobre();
-        ts.setVisible(true);
-    }//GEN-LAST:event_menuSobreActionPerformed
+    }//GEN-LAST:event_formWindowClosed
+
+    private void btnPesquisaOrdenadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaOrdenadaActionPerformed
+        new TelaPesquisaOrdenada().setVisible(true);
+    }//GEN-LAST:event_btnPesquisaOrdenadaActionPerformed
+
+    private void jmitSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmitSairActionPerformed
+        new JanelasOpcoes().sair();
+    }//GEN-LAST:event_jmitSairActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        new JanelasOpcoes().sair();
+    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,10 +323,9 @@ public class TelaConsultar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnConsulta;
+    private javax.swing.JButton btnPesquisa;
+    private javax.swing.JButton btnPesquisaOrdenada;
     private javax.swing.JButton btnSair;
-    private javax.swing.JButton btnSortOk;
-    private javax.swing.JComboBox<String> cbSortOp;
     private javax.swing.JComboBox<String> cbSortOp1;
     private javax.swing.JComboBox<String> cbSortOp2;
     private javax.swing.JComboBox<String> cbSortOp3;
@@ -278,12 +333,11 @@ public class TelaConsultar extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JMenuItem menuSobre;
-    private javax.swing.JPanel panSortOp;
+    private javax.swing.JMenuItem jmitReg;
+    private javax.swing.JMenuItem jmitSair;
+    private javax.swing.JMenuItem jmitSobre;
     private javax.swing.JTable tblConsulta;
-    private javax.swing.JToggleButton tgbSort;
     // End of variables declaration//GEN-END:variables
 }
